@@ -1,18 +1,28 @@
-import platform
-import sys
 import ctypes
 import os
+import platform
+import subprocess
+import sys
 from ctypes import wintypes
 
-OS_List=["Windows","Linux"]
+
+OS_List = ["Windows", "Linux"]
 uefi_path = "/sys/firmware/efi"
+command_win = ["shutdown", "/r", "/fw", "/t", "60"]
+command_linux = ["systemctl", "reboot", "--firmware-setup"]
 
 def os_detect():
     platform_system = platform.system()
     if platform_system in OS_List:
         return platform_system
     else:
-        sys.exit("Unsupported OS : " + platform_system + "\nSupported : " + ", ".join(OS_List))
+        sys.exit(
+            "Unsupported OS : "
+            + platform_system
+            + "\nSupported : "
+            + ", ".join(OS_List)
+        )
+
 
 def is_admin(os_name):
     if os_name == "Windows":
@@ -20,14 +30,21 @@ def is_admin(os_name):
         if win_admin:
             return "admin privileges -> True"
         else:
-            sys.exit(str(bool(win_admin)) + " -> Insufficient privileges, please run as administrator")
+            sys.exit(
+                str(bool(win_admin))
+                + " -> Insufficient privileges, please run as administrator"
+            )
 
     elif os_name == "Linux":
         linux_admin = os.geteuid() == 0
         if linux_admin:
-           return "admin privileges -> True"
+            return "admin privileges -> True"
         else:
-            sys.exit(str(bool(linux_admin)) + " -> Insufficient privileges, please run as root")
+            sys.exit(
+                str(bool(linux_admin))
+                + " -> Insufficient privileges, please run as root"
+            )
+
 
 def uefi_check(os_name):
     if os_name == "Windows":
@@ -43,18 +60,28 @@ def uefi_check(os_name):
         else:
             sys.exit("Unable to determine firmware type")
 
-
     if os_name == "Linux":
         if os.path.exists(uefi_path):
             return "UEFI detected"
         else:
             sys.exit("UEFI not detected, please boot in UEFI mode")
 
+def reboot(os_name):
+    if os_name == "Windows":
+        subprocess.run(command_win, check=True)
+       
+    elif os_name == "Linux":
+        subprocess.run(command_linux, check=True)
+       
+
+
 def main():
     os_name = os_detect()
     print(os_name)
     print(is_admin(os_name))
     print(uefi_check(os_name))
+    print(reboot(os_name))
+
 
 if __name__ == "__main__":
     main()
