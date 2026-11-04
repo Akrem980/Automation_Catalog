@@ -8,7 +8,7 @@ Each project lives in its own folder with its own README that explains what it d
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| [reboot-to-bios](reboot-to-bios) | Reboots the PC straight into BIOS/UEFI setup, so you don't have to hit the right key during boot. Works on Windows and Linux. | In progress |
+| [reboot-to-bios](reboot-to-bios) | Reboots the PC straight into BIOS/UEFI setup, so you don't have to hit the right key during boot. Works on Windows and Linux. | Done |
 | *(next project)* | *Placeholder* | Planned |
 
 ## Status key
