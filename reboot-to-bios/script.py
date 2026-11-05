@@ -140,12 +140,10 @@ def reboot(os_name):
         print("\033[32m>> Rebooting into BIOS/UEFI...\033[0m")
         if os_name == "Windows":
                     show_progress_bar(total=50, length=30, fill='█')
-                    #subprocess.run(command_win, check=True)
-                    pass
+                    subprocess.run(command_win, check=True)
         if os_name == "Linux":
                     show_progress_bar(total=50, length=30, fill='█')
-                    #subprocess.run(command_linux, check=True)
-                    pass
+                    subprocess.run(command_linux, check=True)
 
 
 def main():
