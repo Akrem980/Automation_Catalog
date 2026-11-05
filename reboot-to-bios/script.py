@@ -14,7 +14,7 @@ just_fix_windows_console()
 
 OS_List = ["Windows", "Linux"]
 uefi_path = "/sys/firmware/efi"
-command_win = ["shutdown", "/r", "/fw", '/t', '0']
+command_win = ["shutdown", "/r", "/fw", "/t", "0"]
 command_linux = ["systemctl", "reboot", "--firmware-setup"]
 vocabulary_p = {"yes", "y"}
 vocabulary_n = {"no", "n"}
