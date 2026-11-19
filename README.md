@@ -10,6 +10,7 @@ Each project lives in its own folder with its own README that explains what it d
 |---------|-------------|--------|
 | [reboot-to-bios](reboot-to-bios) | Reboots the PC straight into BIOS/UEFI setup, so you don't have to hit the right key during boot. Works on Windows and Linux. | Done |
 | [grid-pulse](grid-pulse) | *Placeholder* | In progress |
+| [log-parser](log-parser) | *Placeholder* | In progress |
 
 ## Status key
 
