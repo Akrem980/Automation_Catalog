@@ -9,7 +9,7 @@ Each project lives in its own folder with its own README that explains what it d
 | Project | Description | Status |
 |---------|-------------|--------|
 | [reboot-to-bios](reboot-to-bios) | Reboots the PC straight into BIOS/UEFI setup, so you don't have to hit the right key during boot. Works on Windows and Linux. | Done |
-| [grid-pulse](grid-pulse) | *Placeholder* | In progress |
+| [grid-pulse](grid-pulse) | *Placeholder* | Planned |
 | [log-parser](log-parser) | *A Python command-line tool for helpdesk and sysadmin teams that normalizes authentication, system, and application logs into a single format and answers common troubleshooting questions.* | In progress |
 
 ## Status key
